@@ -1,0 +1,281 @@
+.root-editor-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    .btn:hover .custom-tooltip {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px); 
+    }
+    .btn {
+        display: flex;
+        position: relative;
+        align-items: center;
+        padding: 4px 10px;
+        color: #ecedf0;
+        cursor: pointer;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        transition-duration: 0.6s;
+    }
+    
+    .btn.vs-dark {
+        background-color: #444;
+    }
+    
+    .btn.vs-light {
+        background-color: #E7E7E7;
+        color: #333;
+    }
+    
+    .btn:hover {
+        color: rgba(51, 51, 51, 0.7);
+    }
+    
+    .btn.vs-dark:hover {
+        background-color: #555;
+    }
+    
+    .btn.vs-light:hover {
+        background-color: #d0d0d0;
+    }
+    
+    .btn .material-icons {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+    
+    .btn:hover .material-icons {
+        transform: scale(1.1);
+    }
+    .btn.vs-dark:hover .material-icons {
+        color: #ffcc00; 
+        text-shadow: 0 0 5px rgba(255, 204, 0, 0.7), 0 0 10px rgba(255, 204, 0, 0.7); 
+    }
+    
+    .btn.vs-light:hover .material-icons {
+        color: #007BFF;
+        text-shadow: 0 0 5px rgba(0, 123, 255, 0.7), 0 0 10px rgba(0, 123, 255, 0.5);
+    }    
+    
+    .button-33 {
+        color: #0DB632; 
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        padding: 10px 20px; 
+        font-size: 19px;
+        box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), 
+                    1px 1px 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    .button-33.vs-dark {
+        background: linear-gradient(145deg, #1f1f1f, #222222);
+        border: 1px solid #000;
+    }
+    
+    .button-33.vs-light {
+        background: linear-gradient(145deg, #D6E7D6, #FFFFFF); 
+        border: 1px solid #0DB632; 
+    }
+    
+    .button-33:hover {
+        color: #0DB632;
+        box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.3), 
+                    1px 1px 2px rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px); 
+    }
+    
+    .button-33.vs-dark:hover {
+        background: linear-gradient(145deg, #252525, #2a2a2a);
+    }
+    
+    .button-33.vs-light:hover {
+        background: linear-gradient(145deg, #D0E7D0, #F0F0F0);
+        box-shadow: 0 4px 20px rgba(0, 179, 204, 0.5);
+    }
+    
+    .button-33:active {
+        color: #0DB632;
+        transform: translateY(2px);
+    }
+    
+    .button-33.vs-dark:active {
+        background: linear-gradient(145deg, #1f1f1f, #222222);
+    }
+    
+    .button-33.vs-light:active {
+        background: linear-gradient(145deg, #D6E7D6, #FFFFFF);
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .button-33:focus {
+        outline: none;
+    }
+    
+    
+    .button-33:hover .custom-tooltip {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px); 
+    }  
+    
+    .editor-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: #333333;
+        
+    }
+    .editor-header.vs-dark {
+        background-color: #333333;
+    }
+    
+    .editor-header.vs-light {
+        background-color: #cfcccc;
+    }
+    select {
+        border: none;
+        background-color: #6b6969;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    option {
+        background-color: gray;
+        border-radius: 10px;
+    }
+    
+    select:focus {
+        outline: none;
+    }
+    
+    select:hover {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    
+    .vs-light select {
+        background-color: #e7e7e7;
+        color: #333;
+    }
+    
+    .vs-light select:hover {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    }
+    
+    .vs-light option {
+        background-color: #f0f0f0;
+    }
+    
+    .vs-dark select {
+        background-color: #444;
+        color: white;
+    }
+    
+    .vs-dark select:hover {
+        box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+    }
+    
+    .vs-dark option {
+        background-color: #333;
+    }
+    
+    .editor-body {
+        background-color: white;
+        flex-grow: 1;
+    }
+    .editor-right-container, .editor-left-container {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        font-weight: 400;
+        font-size: 24px;
+        color: #F5F5F5;
+    }
+    .editor-left-container.vs-dark {
+        color: #E0E0E0; 
+    }
+    
+    .editor-left-container.vs-light {
+        color: black; 
+    }
+
+    .fullpage-loader {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0, 0.01);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .loader {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 8px solid rgba(255, 99, 71, 0.479);
+            border-left-color: #ff6347;
+            animation: 0.8s loader infinite linear;
+            border-radius: 50%;
+        }
+    }
+}
+.custom-tooltip {
+    visibility: hidden;
+    white-space: nowrap;
+    width: auto;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px;
+    position: absolute;
+    font-size: 12px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 300;
+    z-index: 1;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+}
+
+.custom-tooltip::after {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.custom-tooltip.vs-light {
+    color: black;
+    border: 2px solid black;
+}
+.custom-tooltip.vs-dark {
+    color: white;
+    border: 2px solid white;
+}
+
+
+@keyframes loader {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

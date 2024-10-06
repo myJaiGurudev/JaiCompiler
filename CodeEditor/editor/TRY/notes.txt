@@ -1,0 +1,32 @@
+
+
+Errors 
+    ValueError
+    ZeroDivisionError
+    NameError
+
+List operations 
+    creation - deletion
+    insertion - modification - updation
+    traverse 
+    get - feching 
+    creating list =>
+        1. lst1=[1,2,3]
+        2. lst2=list()
+    del lst1
+    forEach, for 
+    methods -
+        insert
+        extend 
+        append
+
+    
+Add two numbers without using +
+    print(x.__add__(y))
+    print(sum([x,y]))
+    using bitwise operators 
+
+assignment= >
+    difference b/w insert, append, extend with examples
+    and do these operations without using them
+    do it one line
