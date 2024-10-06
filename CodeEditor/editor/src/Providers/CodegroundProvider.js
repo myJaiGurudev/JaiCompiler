@@ -13,7 +13,7 @@ const initialData = [
                 title: 'index',
                 code: `
 //Hey! Do some coding and enjoy!
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -49,7 +49,7 @@ export const defaultCode = {
     'cpp': `
 //Hey! Do some coding and enjoy.
 
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
@@ -72,7 +72,7 @@ print("Hello World")
     'java': `
 //Hey! Do some coding and enjoy!
 
-class HelloWorld {
+class Main {
     public static void main(String[] args) {
         System.out.println("Hello World");
     }
@@ -157,7 +157,7 @@ export const  CodegroundProvider = ({children}) => {
         setFolders(copyFolders);
     };
 
-    const editLanuage = (newLanguage, folderId, fileId) => {
+    const editLanguage = (newLanguage, folderId, fileId) => {
         const copyFolders = [...folders];
         for (let i = 0; i < copyFolders.length; i++) {
             if (copyFolders[i].id === folderId) {
@@ -264,7 +264,7 @@ export const  CodegroundProvider = ({children}) => {
         createCodeground,
         getDefaultCode,
         getLanguage,
-        editLanuage,
+        editLanguage,
         saveCode
     }
     return (

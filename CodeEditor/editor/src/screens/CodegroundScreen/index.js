@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import "./index.scss"
 import { EditorContainer } from "./EditorContainer";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTheme } from "../../Providers/ThemeProvider";
+import { makeSubmission } from "./service";
 
 export const  CodegroundScreen= () => {
 
@@ -13,6 +14,7 @@ export const  CodegroundScreen= () => {
     const [isFullScreenInput, setIsFullScreenInput] = useState(false);
     const [isFullScreenOutput, setIsFullScreenOutput] = useState(false);
     const {theme} =useTheme();
+    const [showLoader, setShowLoader] = useState(false);
 
     const importInput = (e) => {
         const file=e.target.files[0];
@@ -77,6 +79,36 @@ export const  CodegroundScreen= () => {
         return () => clearInterval(intervalId); 
     }, []);
 
+    const callback = (apiStatus, data, message) => {
+        if (apiStatus === 'loading') {
+            setShowLoader(true);
+        } else if (apiStatus === 'error') {
+            setShowLoader(false);
+            setOutput("Something went wrong!");
+        } else {
+            if (apiStatus && apiStatus.data) {
+                setShowLoader(false);
+                const statusId = apiStatus.data.status.id;
+    
+                if (statusId === 3) {
+                    setOutput(atob(apiStatus.data.stdout));
+                } else if (statusId === 6) {
+                    const compileError = atob(apiStatus.data.compile_output);
+                    setOutput(`Compilation Error: \n\n${compileError}`);
+                } else {
+                    const runtimeError = atob(apiStatus.data.stderr);
+                    setOutput(`Runtime Error: \n\n${runtimeError}`);
+                }
+            }
+    
+            console.log("apiStatus:", apiStatus);
+        }
+    };    
+    const runCode = useCallback(({code, language}) => {
+        setShowLoader(true);
+        makeSubmission(code, language, callback, input)
+    },[input])
+
     return <div className="codeground-container">
         <div className={`header-container ${theme}`}>
             <img src="/logo2.png" className="logo"/>
@@ -84,11 +116,11 @@ export const  CodegroundScreen= () => {
         </div>
         <div className={`content-container ${theme}`}>
             <div className="editor-container">
-                <EditorContainer fileId={fileId} folderId={folderId} />
+                <EditorContainer fileId={fileId} folderId={folderId} runCode={runCode} />
             </div>
             <div className={`container ${theme}`} style={isFullScreenInput ? styles.fullScreen: {}}>
                 <div className={`header ${theme}`}>
-                    <strong>𝙄𝙣𝙥𝙪𝙩 :</strong>
+                    <strong>stdin</strong>
                     <div className="IOM">
                         <label htmlFor="input" className={`btn ${theme}`}>
                             <span className="material-icons">cloud_download</span>
@@ -105,7 +137,7 @@ export const  CodegroundScreen= () => {
             </div>
             <div className={`container ${theme}`} style={isFullScreenOutput ? styles.fullScreen: {}}>
                 <div className={`header ${theme}`}>
-                    <strong>𝙊𝙪𝙩𝙥𝙪𝙩 :</strong>
+                    <strong>Output :</strong>
                     <div className="IOM">
                         <button className={`btn ${theme}`} style={{border: "none"}} onClick={exportOutput}>
                             <span className="material-icons">cloud_upload</span>
@@ -120,6 +152,9 @@ export const  CodegroundScreen= () => {
                 <textarea readOnly value={output} onChange={(e) => setOutput(e.target.value)}></textarea>
             </div>
         </div>
+        {showLoader && <div className="fullpage-loader">
+            <div className={`loader ${theme}`}></div>
+        </div>}
     </div>
 }
 

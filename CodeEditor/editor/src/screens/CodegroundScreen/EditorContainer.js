@@ -3,6 +3,7 @@ import "./EditorContainer.scss"
 import Editor from "@monaco-editor/react"
 import { CodegroundContext } from "../../Providers/CodegroundProvider"
 import { useTheme } from "../../Providers/ThemeProvider"
+import { makeSubmission } from "./service"
 
 const editorOptions = {
     fontSize: 16,
@@ -16,13 +17,11 @@ const fileExtensionMapping = {
     java: 'java'
 }
 
-export const EditorContainer = ({fileId, folderId}) => {
+export const EditorContainer = ({fileId, folderId, runCode}) => {
 
-    const {getDefaultCode, getLanguage, editLanuage, saveCode} = useContext(CodegroundContext);
+    const {getDefaultCode, getLanguage, editLanguage, saveCode} = useContext(CodegroundContext);
 
     const [isFullScreen, setIsFullScreen] = useState(false);
-
-    const [showLoader, setShowLoader] = useState(false);
 
     const [code, setCode] = useState(() => {
         return getDefaultCode(fileId, folderId);
@@ -81,7 +80,7 @@ export const EditorContainer = ({fileId, folderId}) => {
 
     const onChangeLanguage = (e) => {
         setLanguage(e.target.value);
-        editLanuage(e.target.value, folderId, fileId);
+        editLanguage(e.target.value, folderId, fileId);
         const l=getDefaultCode(fileId,folderId);
         setCode(l);
         codeRef.current=l;
@@ -93,6 +92,10 @@ export const EditorContainer = ({fileId, folderId}) => {
 
     const fullScreen = () => {
         setIsFullScreen(!isFullScreen);
+    }
+
+    const onRunCode = () => {
+        runCode({code: codeRef.current, language});
     }
 
     return (
@@ -142,7 +145,7 @@ export const EditorContainer = ({fileId, folderId}) => {
                         <option value="java">Java</option>
                         <option value="javascript">JavaScript</option>
                     </select>
-                    <button className={`button-33 ${theme}`}>
+                    <button className={`button-33 ${theme}`} onClick={onRunCode}>
                         <span className="material-icons">play_arrow</span>
                         <span>&nbsp;𝙍𝙪𝙣&nbsp;&nbsp;</span>
                     </button>
@@ -158,11 +161,6 @@ export const EditorContainer = ({fileId, folderId}) => {
                     value={code}
                 />
             </div>
-            {showLoader && <div className="fullpage-loader">
-                <div className="loader">
-
-                </div>
-            </div>}
         </div>
     );
 }
