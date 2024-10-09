@@ -1,0 +1,28 @@
+Difference Between insert(), append(), and extend():
+
+    1. append(): Adds a single element to the end of the list.
+        Example:
+            lst = [1, 2, 3]
+            -> with append():
+                lst.append(4)                       # lst=[1,2,3,4]
+            -> without append():
+                lst = lst + [4]                     # lst=[1,2,3,4]
+    2. extend(): Adds elements from another iterable (list, tuple, etc.) to the end of the list.
+        Example:
+            lst = [1, 2, 3]
+            -> with extend():
+                lst.extend([4, 5, 6])              # lst=lst=[1,2,3,4,5,6]
+            -> without extend():
+                lst = lst + [4, 5, 6]              # lst=[1,2,3,4,5,6]
+    3. insert(): Inserts an element at a specified position in the list.
+        Example:
+            lst = [1, 2, 3]
+            -> with insert():
+                lst.insert(1, 100)                 # lst=[1,100,2,3]
+            -> without insert():
+                lst = lst[:1] + [100] + lst[1:]    # lst=[1,100,2,3]
+
+
+All operations in one line => 
+    For this we can use semi-colon as a separator:
+        -> lst = [1, 2, 3]; lst = lst[:1] + [100] + lst[1:] + [4] + [5, 6] 

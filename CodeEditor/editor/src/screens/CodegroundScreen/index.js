@@ -15,6 +15,7 @@ export const  CodegroundScreen= () => {
     const [isFullScreenOutput, setIsFullScreenOutput] = useState(false);
     const {theme} =useTheme();
     const [showLoader, setShowLoader] = useState(false);
+    const [outputType, setOutputType] = useState('');
 
     const importInput = (e) => {
         const file=e.target.files[0];
@@ -80,30 +81,49 @@ export const  CodegroundScreen= () => {
     }, []);
 
     const callback = (apiStatus, data, message) => {
-        if (apiStatus === 'loading') {
+        if (apiStatus.apiStatus === 'loading') {
             setShowLoader(true);
-        } else if (apiStatus === 'error') {
+        } else if (apiStatus.apiStatus === 'error') {
             setShowLoader(false);
-            setOutput("Something went wrong!");
+            setOutput("Program did not output anything!");
+            setOutputType("error");
         } else {
             if (apiStatus && apiStatus.data) {
                 setShowLoader(false);
                 const statusId = apiStatus.data.status.id;
-    
                 if (statusId === 3) {
-                    setOutput(atob(apiStatus.data.stdout));
+                    const out = atob(apiStatus.data.stdout);
+                    if (out === atob(null)) {
+                        setOutput("Program did not output anything!");
+                        setOutputType("error");
+                    } else {
+                        setOutput(out);
+                        setOutputType("success");
+                    }
                 } else if (statusId === 6) {
                     const compileError = atob(apiStatus.data.compile_output);
                     setOutput(`Compilation Error: \n\n${compileError}`);
+                    setOutputType("error");
+                } else if (statusId === 5) {
+                    setOutput("Time Limit Exceeded!");
+                    setOutputType("error");
+                } else if (statusId === 13) {
+                    setOutput("Internal Error!");
+                    setOutputType("error");
+                } else if (statusId === 14) {
+                    setOutput("Exec Format Error");
+                    setOutputType("error");
                 } else {
                     const runtimeError = atob(apiStatus.data.stderr);
                     setOutput(`Runtime Error: \n\n${runtimeError}`);
+                    setOutputType("error");
                 }
             }
     
             console.log("apiStatus:", apiStatus);
         }
-    };    
+    };
+    
     const runCode = useCallback(({code, language}) => {
         setShowLoader(true);
         makeSubmission(code, language, callback, input)
@@ -149,7 +169,7 @@ export const  CodegroundScreen= () => {
                         </button>
                     </div>
                 </div>
-                <textarea readOnly value={output} onChange={(e) => setOutput(e.target.value)}></textarea>
+                <textarea readOnly value={output} onChange={(e) => setOutput(e.target.value)} style={outputType==='error'? styles.error:{}}></textarea>
             </div>
         </div>
         {showLoader && <div className="fullpage-loader">
@@ -166,5 +186,9 @@ const styles = {
         right: 0,
         bottom: 0,
         zIndex: 10
+    },
+    error: {
+        color: 'red',
+        backgroundColor: '#FEEFEF'
     }
 }

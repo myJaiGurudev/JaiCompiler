@@ -1,5 +1,3 @@
-
-
 Errors 
     ValueError
     ZeroDivisionError
@@ -20,13 +18,32 @@ List operations
         extend 
         append
 
-    
 Add two numbers without using +
     print(x.__add__(y))
     print(sum([x,y]))
     using bitwise operators 
+input():
+    return type symbol: ->
 
-assignment= >
-    difference b/w insert, append, extend with examples
-    and do these operations without using them
-    do it one line
+print():
+    *values : object ,
+    sep : str | None = " " ,
+    end : str | None = "\n ,
+    file : SupportsWrite[str] | None = None ,
+    flush : Literal[False] = False
+
+string -> 
+    split(sep=" ",maxsplit=-1)
+
+different types of arguments->
+    position only
+    position | keyword
+    keyword only
+
+*items - for unpacking
+
+
+Assignment :
+    two methods
+    
+    
