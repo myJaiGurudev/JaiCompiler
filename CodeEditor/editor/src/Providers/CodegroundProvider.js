@@ -13,8 +13,11 @@ const initialData = [
                 title: 'index',
                 code: `
 //Hey! Do some coding and enjoy!
-#include <iostream>
+
+#include <bits/stdc++.h>
+
 using namespace std;
+
 int main()
 {
     cout<<"Hello World";
@@ -49,7 +52,7 @@ export const defaultCode = {
     'cpp': `
 //Hey! Do some coding and enjoy.
 
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
