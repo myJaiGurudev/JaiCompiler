@@ -127,4 +127,10 @@
 
 46. *items - for unpacking
 
-47. set : unordered, un-indexed, immutable, keys, unique
+47. set : unordered, un-indexed, mutable, keys, unique, set elements are immutable
+
+48. Modular mathematics -> still remaining
+
+49. Dounder method 
+    • int.__add__()
+    
