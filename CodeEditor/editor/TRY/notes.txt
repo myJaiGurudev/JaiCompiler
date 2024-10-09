@@ -1,9 +1,94 @@
-Errors 
+1.  Function
+2.  Functionality
+3.  Module
+4.  String
+5.  Escape Sequence
+6.  Format()
+7.  Fstring
+8.  Operator
+9.  MRO -Method Resolution Order
+10. Error Handling--
+    • try
+    • except
+11. Test Cases --
+	• Positive Test Cases
+	• Negative Test Cases
+	• Neutral Test Case 
+
+12. Array
+13. List
+14. Index
+15. Sequence
+16. Non Sequence
+17. Dict--Key : Value
+    • Key-- Unique
+    • Non empty
+    • Immutable
+    • Hashable--Use to search for some element in one Step.
+        • It must immutable.
+18. def keyword use to create function.
+19. for each loop
+20. While loop
+21. Unpacking
+22. Functions
+23. Errors
+	• ValueError
+	• ZeroDivisionError
+	• NameError
+24. Saperater
+25. List
+26. Error Handeling
+	• Try
+	• Except
+27. Operation on collection
+	• creation - deletion
+	• Insertion - modification - updation
+	• Traverse
+	• Get - fetching
+28. Itterator
+	• for
+	• forEach
+29. MemberShip operator
+	• in
+	• Not in
+30. Array method
+	• sort() # by default accending order.
+	• sort(reverse==true) # for desending order
+31. Symbol in documentation
+	• Return type ( -> )
+	• Type of( : )
+	• Capacity ( * ) 0 to more {0, }
+	• ( + ) 1 to more {1, }
+	• ( / ) postion only
+32. sep
+	• Use to saperate in between element (By default it is present in python)
+33. end
+	• Use to change the line
+34. Keywords
+35. Var-Arg ( … )
+36. Inside print 5 argument is there :
+	• *value : object,
+	• Sep : 
+	• End :
+	• File :
+	• Flush : 
+37. Way to pass argument in print
+	• By keyword (Keyword Argument)
+	• By Postion (Positional Argument)
+38. Split method
+	• Use to split 
+	Parameter of split
+	• Sep : LiteralString |None = None
+	Arguemnt in split
+	• Default ( Space )
+	• One argument
+	• Two Argument
+39. Errors 
     ValueError
     ZeroDivisionError
     NameError
 
-List operations 
+40. List operations 
     creation - deletion
     insertion - modification - updation
     traverse 
@@ -18,32 +103,28 @@ List operations
         extend 
         append
 
-Add two numbers without using +
+41. Add two numbers without using +
     print(x.__add__(y))
     print(sum([x,y]))
     using bitwise operators 
-input():
+42. input():
     return type symbol: ->
 
-print():
+43. print():
     *values : object ,
     sep : str | None = " " ,
     end : str | None = "\n ,
     file : SupportsWrite[str] | None = None ,
     flush : Literal[False] = False
 
-string -> 
+44. string -> 
     split(sep=" ",maxsplit=-1)
 
-different types of arguments->
+45. different types of arguments->
     position only
     position | keyword
     keyword only
 
-*items - for unpacking
+46. *items - for unpacking
 
-
-Assignment :
-    two methods
-    
-    
+47. set : unordered, un-indexed, immutable, keys, unique

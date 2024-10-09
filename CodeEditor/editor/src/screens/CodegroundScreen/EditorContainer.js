@@ -3,7 +3,6 @@ import "./EditorContainer.scss"
 import Editor from "@monaco-editor/react"
 import { CodegroundContext } from "../../Providers/CodegroundProvider"
 import { useTheme } from "../../Providers/ThemeProvider"
-import { makeSubmission } from "./service"
 
 const editorOptions = {
     fontSize: 16,

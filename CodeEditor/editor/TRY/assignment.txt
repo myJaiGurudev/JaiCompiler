@@ -1,28 +1,53 @@
-Difference Between insert(), append(), and extend():
+Assignment 1 -> 
+    Difference Between insert(), append(), and extend():
 
-    1. append(): Adds a single element to the end of the list.
-        Example:
-            lst = [1, 2, 3]
-            -> with append():
-                lst.append(4)                       # lst=[1,2,3,4]
-            -> without append():
-                lst = lst + [4]                     # lst=[1,2,3,4]
-    2. extend(): Adds elements from another iterable (list, tuple, etc.) to the end of the list.
-        Example:
-            lst = [1, 2, 3]
-            -> with extend():
-                lst.extend([4, 5, 6])              # lst=lst=[1,2,3,4,5,6]
-            -> without extend():
-                lst = lst + [4, 5, 6]              # lst=[1,2,3,4,5,6]
-    3. insert(): Inserts an element at a specified position in the list.
-        Example:
-            lst = [1, 2, 3]
-            -> with insert():
-                lst.insert(1, 100)                 # lst=[1,100,2,3]
-            -> without insert():
-                lst = lst[:1] + [100] + lst[1:]    # lst=[1,100,2,3]
+        1. append(): Adds a single element to the end of the list.
+            Example:
+                lst = [1, 2, 3]
+                -> with append():
+                    lst.append(4)                       # lst=[1,2,3,4]
+                -> without append():
+                    lst = lst + [4]                     # lst=[1,2,3,4]
+        2. extend(): Adds elements from another iterable (list, tuple, etc.) to the end of the list.
+            Example:
+                lst = [1, 2, 3]
+                -> with extend():
+                    lst.extend([4, 5, 6])              # lst=lst=[1,2,3,4,5,6]
+                -> without extend():
+                    lst = lst + [4, 5, 6]              # lst=[1,2,3,4,5,6]
+        3. insert(): Inserts an element at a specified position in the list.
+            Example:
+                lst = [1, 2, 3]
+                -> with insert():
+                    lst.insert(1, 100)                 # lst=[1,100,2,3]
+                -> without insert():
+                    lst = lst[:1] + [100] + lst[1:]    # lst=[1,100,2,3]
 
 
-All operations in one line => 
-    For this we can use semi-colon as a separator:
-        -> lst = [1, 2, 3]; lst = lst[:1] + [100] + lst[1:] + [4] + [5, 6] 
+    All operations in one line => 
+        For this we can use semi-colon as a separator:
+            -> lst = [1, 2, 3]; lst = lst[:1] + [100] + lst[1:] + [4] + [5, 6] 
+
+Assignment 2 -> 
+    Dictionary methods:
+        1. pop():
+            -> By this function remove the specific key and return the its value.
+            -> If key is not bfound in the given dictionary then it raise an error.
+            syntax:
+                value=dict.pop(key)   ->value
+            Example:
+                dict={"apple":129,"banana":35,"mango":56}
+                value=dict.pop("banana")
+                print(value)
+                print(dict)
+
+        2. popitem():  
+            -> By this function remove the last key value pair and return the new dict.
+            -> If dict is empty then reaiswe an error.
+            syntax:
+                value=dict.popitem(key)   ->{key:value}
+            Example:
+                dict={"apple":129,"banana":35,"mango":56}
+                value=dict.popitem()
+                print(value)
+                print(dict)
