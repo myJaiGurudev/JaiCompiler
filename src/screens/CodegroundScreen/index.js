@@ -4,6 +4,7 @@ import { EditorContainer } from "./EditorContainer";
 import { useCallback, useEffect, useState } from "react";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { makeSubmission } from "./service";
+import { Model } from "../../Providers/Models/Model";
 
 export const  CodegroundScreen= () => {
 
@@ -137,6 +138,7 @@ export const  CodegroundScreen= () => {
         <div className={`content-container ${theme}`}>
             <div className="editor-container">
                 <EditorContainer fileId={fileId} folderId={folderId} runCode={runCode} />
+                <Model/>
             </div>
             <div className={`container ${theme}`} style={isFullScreenInput ? styles.fullScreen: {}}>
                 <div className={`header ${theme}`}>

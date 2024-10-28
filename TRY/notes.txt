@@ -1,4 +1,5 @@
 1.  Function
+		Its a name given to piece of code which takes Parameter and perform some operations 
 2.  Functionality
 3.  Module
 4.  String
@@ -133,4 +134,38 @@
 
 49. Dounder method 
     • int.__add__()
-    
+
+50. MRO - Method Resolution Order
+
+51. Recursion
+	def fun(x):
+		if x>1:
+			fun(x//2)
+			fun(x//2)
+		print(x)
+	fun(4) #1121124
+	Types of Recursion :
+		1. Head 
+		2. Tail 
+		3. Nested 
+		4. Linear 
+		5. Direct 
+		6. Indirect / Mutual 
+		7. Binary 
+				def fun(x):
+					if x>100:
+						return x-10 
+					return fun(fun(x+11))
+				print(fun(91))  #91
+		8. Multi- Recursion
+	
+52. class 
+		constructor => to make class work as a process 
+		self 
+		method 
+		objects
+		name pickling
+		class variable
+		instance variable
+		MRO -> Method Resolution
+		

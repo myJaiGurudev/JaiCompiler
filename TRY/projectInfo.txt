@@ -1,0 +1,9 @@
+3. Simple Inventory Management System 
+    Features => 
+        ~ Add, Update, remove item from Inventory
+        ~ track item quantity
+        ~ Check status Inventory
+    Revision Concepts => 
+        ~ loop, condition, Functions
+    New concept => 
+        

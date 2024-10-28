@@ -1,8 +1,9 @@
-import { useContext, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import "./EditorContainer.scss"
 import Editor from "@monaco-editor/react"
 import { CodegroundContext } from "../../Providers/CodegroundProvider"
 import { useTheme } from "../../Providers/ThemeProvider"
+import { modelConstants, ModelContext } from "../../Providers/ModelProvider"
 
 const editorOptions = {
     fontSize: 16,
@@ -18,7 +19,9 @@ const fileExtensionMapping = {
 
 export const EditorContainer = ({fileId, folderId, runCode}) => {
 
-    const {getDefaultCode, getLanguage, editLanguage, saveCode} = useContext(CodegroundContext);
+    const {getDefaultCode, getLanguage, editLanguage, saveCode, getFileTitle} = useContext(CodegroundContext);
+
+    const { openModel, setModelPayload } = useContext(ModelContext);
 
     const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -29,6 +32,11 @@ export const EditorContainer = ({fileId, folderId, runCode}) => {
     const  [language, setLanguage] = useState(() => {
         return getLanguage(fileId, folderId);
     });
+
+    const [fileTitle, setFileTitle] = useState(() => getFileTitle(fileId, folderId));
+    useEffect(() => {
+        setFileTitle(getFileTitle(fileId, folderId));
+    }, [fileId, folderId, getFileTitle]);
 
     const {theme, setTheme} =useTheme();
 
@@ -97,14 +105,23 @@ export const EditorContainer = ({fileId, folderId, runCode}) => {
         runCode({code: codeRef.current, language});
     }
 
+    const onEditFileTitle = () => {
+        setModelPayload({ fileId, folderId }); 
+        openModel(modelConstants.UPDATE_FILE_TITLE);  
+    };
+    useEffect(() => {
+        const updatedTitle = getFileTitle(fileId, folderId);
+        setFileTitle(updatedTitle);
+    }, [getFileTitle, fileId, folderId]);
+
     return (
         <div className="root-editor-container" style={isFullScreen ? styles.fullScreen : { height: '100%', display: 'flex', flexDirection: 'column' }}>
             <div className={`editor-header ${theme}`}>
                 <div className={`editor-left-container ${theme}`}>
-                    <strong>{"Title of the Card"}</strong>
-                    <div className={`btn ${theme}`}>
+                    <strong>{fileTitle}</strong>
+                    <div className={`btn ${theme}`} onClick={onEditFileTitle}>
                         <span className="material-icons">edit</span>
-                        <div class={`custom-tooltip ${theme}`}>Edit Title</div>
+                        <div className={`custom-tooltip ${theme}`}>Edit Title</div>
                     </div>
                 </div>
                 <div className="editor-right-container">

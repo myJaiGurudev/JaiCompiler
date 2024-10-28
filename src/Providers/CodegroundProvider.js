@@ -231,6 +231,18 @@ export const  CodegroundProvider = ({children}) => {
             }
         }
     }
+    const getFileTitle = (fileId, folderId) => {
+        for(let i=0;i<folders.length;i++){
+            if(folders[i].id===folderId){
+                for(let j=0;j<folders[i].files.length;j++){
+                    const cur=folders[i].files[j];
+                    if(cur.id===fileId){
+                        return cur.title;
+                    }
+                }
+            }
+        }
+    }
 
     const saveCode = (fileId, folderId, newCode) => {
         const copyFolders = [...folders];
@@ -268,7 +280,8 @@ export const  CodegroundProvider = ({children}) => {
         getDefaultCode,
         getLanguage,
         editLanguage,
-        saveCode
+        saveCode,
+        getFileTitle
     }
     return (
         <CodegroundContext.Provider value={codegroundFeatures}>
