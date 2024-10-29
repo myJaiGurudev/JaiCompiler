@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { HomeScreen } from "./screens/HomeScreen";
 import { CodegroundScreen } from "./screens/CodegroundScreen";
 import { CodegroundProvider } from "./Providers/CodegroundProvider";
@@ -10,12 +10,12 @@ function App() {
     <ThemeProvider>
       <CodegroundProvider>
         <ModelProvider>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
               <Route path="/codeground/:fileId/:folderId" element={<CodegroundScreen />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </ModelProvider>
       </CodegroundProvider>
     </ThemeProvider>
