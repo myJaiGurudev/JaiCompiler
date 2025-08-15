@@ -3,7 +3,6 @@ import "./CreateCodegroundModel.scss"
 import { useContext } from "react";
 import { ModelContext } from "../ModelProvider";
 import { CodegroundContext } from "../CodegroundProvider";
-
 export const CreateFolderModel = () => {
     const {createNewFolder} = useContext(CodegroundContext);
     const modelFeatures= useContext(ModelContext);
