@@ -10,7 +10,6 @@ export const HomeScreen=() => {
     const openCreateCodegroundModel = () => {
         modelFeatures.openModel(modelConstants.CREATE_CODEGROUND);
     };
-
     return (
         <div className="home-container">
             <div className="left-container">
