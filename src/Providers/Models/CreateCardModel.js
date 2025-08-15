@@ -3,7 +3,6 @@ import "./CreateCodegroundModel.scss"
 import { ModelContext } from "../ModelProvider"
 import { v4 } from "uuid";
 import { CodegroundContext, defaultCode } from "../CodegroundProvider";
-
 export const CreateCardModel = () => {
 
     const {closeModel, modelPayload} = useContext(ModelContext);
