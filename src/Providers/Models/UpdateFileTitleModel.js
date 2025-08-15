@@ -7,7 +7,7 @@ import { CodegroundContext } from "../CodegroundProvider";
 export const UpdateFileTitleModel = () => {
     const {closeModel, modelPayload} = useContext(ModelContext);
     const {editFileTitle} = useContext(CodegroundContext);
-    
+
     const onSubmitModel = (e) => {
         e.preventDefault();
         const fileName = e.target.fileName.value;
