@@ -4,7 +4,6 @@ import Editor from "@monaco-editor/react"
 import { CodegroundContext } from "../../Providers/CodegroundProvider"
 import { useTheme } from "../../Providers/ThemeProvider"
 import { modelConstants, ModelContext } from "../../Providers/ModelProvider"
-
 const editorOptions = {
     fontSize: 16,
     wordWrap: 'on'
