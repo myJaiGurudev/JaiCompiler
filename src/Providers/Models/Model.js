@@ -6,7 +6,6 @@ import { UpdateFolderTitleModel } from "./UpdateFolderTitleModel";
 import { UpdateFileTitleModel } from "./UpdateFileTitleModel";
 import { CreateCardModel } from "./CreateCardModel";
 
-
 export const Model = () => {
     const modelFeatures= useContext(ModelContext);
     return <>
