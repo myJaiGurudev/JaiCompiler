@@ -3,7 +3,6 @@ import "./CreateCodegroundModel.scss"
 import { ModelContext } from "../ModelProvider"
 import { CodegroundContext } from "../CodegroundProvider";
 import { createFolderStyles } from "./CreateFolderModel";
-
 export const UpdateFolderTitleModel = () => {
 
     const {closeModel, modelPayload} = useContext(ModelContext);
