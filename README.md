@@ -50,3 +50,17 @@ npm install
 
 # 3️⃣ Run the Project
 npm start
+```
+
+---
+
+## Website Screenshots
+
+### Home Page
+![Home Page Screenshot](https://github.com/myJaiGurudev/JaiCompiler/blob/a77069578c69df3319af5399ed9e694037ebb3f9/demo1.PNG)
+
+### Editor Page
+![Editor Page Screenshot](https://github.com/myJaiGurudev/JaiCompiler/blob/a77069578c69df3319af5399ed9e694037ebb3f9/demo2.PNG)
+
+### Running Program
+![Running Program Screenshot](https://github.com/myJaiGurudev/JaiCompiler/blob/a77069578c69df3319af5399ed9e694037ebb3f9/demo3.PNG)
